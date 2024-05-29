@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ejercicio 6</title>
+    </head>
+    <body>
+            <h1>Formulario de persona</h1>
+            <form id="formulario">
+                <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+                </div>
+                <div>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido">
+                </div>
+                <div>
+                <label for="edad">Edad</label>
+                <input type="number" id="edad">
+                </div>
+                <div>
+                    <label for="altura">Altura en centimetros</label>
+                    <input type="text" id="altura">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="text" id="email">
+                </div>
+                <p id="mensaje"></p>
+                <button type="submit">Enviar</button>
+            </form>
+    </body>
+    <script>
+        const formulario = document.getElementById("formulario");
+        const mensaje = document.getElementById("mensaje");
+
+        formulario.onsubmit = (e) => {
+            mensaje.style.color = "red";
+            if (formulario["nombre"].value ===""){
+                mensaje.textContent = "No se ha introducido un nombre";
+            }
+            else if(formulario["nombre"].value.length>50){
+                mensaje.textContent="El nombre debe tener menos de 50 caracteres"
+            }
+            else if (formulario["apellido"].value ===""){
+                mensaje.textContent = "No se ha introducido un apellido";
+            }
+            else if(formulario["apellido"].value.length>50){
+                mensaje.textContent="El apellido debe tener menos de 50 caracteres"
+            }
+            else if (formulario["edad"].value ===""){
+                mensaje.textContent = "No se ha ingresado una edad";
+            }
+            else if (formulario["edad"].value<0){
+                mensaje.textContent = "No se puede ingresar una edad negativa";
+            }
+            else if(formulario["edad"].value<18){
+                mensaje.textContent = "Debe ser mayor de edad";
+            }
+            else if(formulario["altura"].value ===""){
+                mensaje.textContent = "No se ha ingresado una altura";
+            }
+            else if(formulario["altura"].value<0){
+                mensaje.textContent= "Altura negativa, ingrese de nuevo"
+            }
+            else if(formulario["altura"].value>230){
+                mensaje.textContent="La altura pasa el limite, ingrese de nuevo"
+            }
+            else if(formulario["email"].value ===""){
+                mensaje.textContent = "No se ha ingresado un email";
+            }
+            else if(formulario["email"].value.includes("@")==false){
+                mensaje.textContent= "No escribio el @, ingrese de nuevo"
+            }
+            else{
+                mensaje.textContent = "Todos los datos son correctos";
+                mensaje.style.color="green"
+            }
+            e.preventDefault();
+        }
+
+    </script>
+</html>
