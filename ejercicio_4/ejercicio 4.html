@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 4</title>
+    </head>
+    <body>
+        <form id="formulario">
+            <h1>Ingrese el peso y altura</h1>
+            <div>           
+                 <label for="peso">Peso</label>
+                <input type="number" id="peso" step="0.1" min="0">
+            </div>
+            <div>
+                <label for="altura">Altura</label>
+                <input type="number" step="0.01" min="0" id="altura">
+            </div>                  
+            <button type="submit">Calcular IMC</button>
+        </form>
+    </body>
+    <script>
+        const formulario = document.getElementById("formulario");
+        formulario.onsubmit = (e) => {
+            const peso = document.getElementById("peso").value;
+            const altura = document.getElementById("altura").value;
+            let imc = (peso / (altura * altura)).toFixed(1);
+            alert("su IMC es: "+imc);
+            e.preventDefault();
+        }
+    </script>
+</html>
