@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 5</title>
+    </head>
+    <body>
+        <form id="formulario">
+            <h1>Ingrese los datos</h1>
+            <div>           
+                 <label for="Lado A">Lado A</label>
+                <input type="number" id="Lado A" min="0">
+            </div>
+            <div>
+                <label for="Lado B">Lado B</label>
+                <input type="number" min="0" id="Lado B">
+            </div>
+            <div>
+                <label for="Lado C">Lado C</label>
+                <input type="number" min="0" id="Lado C">
+            </div>                  
+            <button type="submit">Calcular area</button>
+            <p id="resultado"></p>
+        </form>
+    </body>
+    <script>
+        const formulario = document.getElementById("formulario");
+        
+            formulario.onsubmit = (e) => {
+                const LadoA = document.getElementById("Lado A").value;
+                const LadoB = document.getElementById("Lado B").value;
+                const LadoC = document.getElementById("Lado C").value;
+                const resultado = document.getElementById("resultado");
+
+                const area = (LadoA-LadoC)*LadoB
+                
+                if (area > 0){
+                    resultado.textContent = `El area es de ${area}mts`
+                }
+                else{
+                    resultado.textContent = "Revise los datos, recuerde que el lado A debe ser mayor que el C"
+                }
+            e.preventDefault();  
+            }    
+        
+          
+
+    </script>
+</html>
