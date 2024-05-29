@@ -1,0 +1,6 @@
+un texto cualquiera en la rama master
+
+este es un cambio desde la rama A
+este es otro cambio desde la rama B
+esta es la ultima fusion para la rama master
+
