@@ -1,0 +1,6 @@
+un texto cualquiera en la rama master
+
+este es un cambio desde la rama A
+este es otro cambio desde la rama B
+este es el ultimo cambio desde la rama C
+
