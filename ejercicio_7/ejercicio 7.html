@@ -14,18 +14,37 @@
 
         async function Agregar(){
             const res = await fetch("https://jsonplaceholder.typicode.com/users")
+            const res2 = await fetch("https://jsonplaceholder.typicode.com/todos")
+            const tareas = await res2.json()
             const personas = await res.json()
             
             personas.forEach((persona) => {
                 const item=document.createElement("li")
                 const boton = document.createElement("button")
-                item.textContent = `${persona.id} - ${persona.name} - ${persona.email}`
+                item.textContent = `${persona.id} - ${persona.name} - ${persona.email} sitio web : ${persona.website}`
                 listado.appendChild(item)
                 item.appendChild(boton)
                 boton.textContent = 'ver tareas'
-            })
-      };
 
+                boton.addEventListener("click", async () => {
+                    tareas.forEach((tarea) => {
+                        if (persona.id==tarea.userId){
+                            const item2=document.createElement("li")
+                            item2.textContent = `${tarea.title}`
+                            item.appendChild(item2)
+                            boton.disabled = true
+                        if (tarea.completed){
+                            item2.style.color="green"
+                        }
+                        else{
+                            item2.style.color="red"
+                        } 
+                        }
+                }
+            )
+        }) 
+        })
+      }
         Agregar()
     </script>
 </body>
